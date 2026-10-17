@@ -33,11 +33,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="bg-netflixDark text-white font-sans antialiased selection:bg-netflixRed selection:text-white flex flex-col justify-between overflow-x-hidden">
+<body class="text-white font-sans antialiased selection:bg-netflixRed selection:text-white flex flex-col justify-between overflow-x-hidden">
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- ================= NAVBAR (RESPONSIVE FOR ALL OS & SCREENS) ================= -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-gradient-to-b from-black/95 via-black/60 to-transparent py-3 md:py-4 px-4 sm:px-8 lg:px-12 flex items-center justify-between">
         <!-- Left Nav Brand & Links -->
         <div class="flex items-center space-x-4 md:space-x-8">
@@ -45,7 +45,7 @@
                 <span>PORTFLEX</span>
             </a>
 
-            <!-- Desktop Navigation Links -->
+            <!-- Desktop / Tablet Navigation Links -->
             <ul class="hidden lg:flex items-center space-x-6 text-xs xl:text-sm font-medium text-gray-300">
                 <li><a href="#hero" class="hover:text-white transition">Home</a></li>
                 <li><a href="#graphic-design" class="hover:text-white transition">Graphic Design</a></li>
@@ -55,17 +55,20 @@
             </ul>
         </div>
 
-        <!-- Right Controls -->
+        <!-- Right Controls & Action -->
         <div class="flex items-center space-x-2 sm:space-x-4">
+            <!-- Search Bar Input -->
             <div class="relative flex items-center">
                 <input id="searchInput" type="text" placeholder="Search portfolio..." class="bg-black/70 border border-gray-700 focus:border-netflixRed text-xs sm:text-sm text-white rounded-full pl-8 pr-3 py-1.5 focus:outline-none w-28 xs:w-36 sm:w-48 lg:w-56 focus:w-40 xs:focus:w-48 sm:focus:w-60 transition-all duration-300">
                 <i class="fa-solid fa-magnifying-glass absolute left-2.5 text-gray-400 text-xs"></i>
             </div>
 
+            <!-- Manage Works (Mobile / Small Screens) -->
             <button onclick="openCustomManagerModal()" class="lg:hidden p-2 text-netflixRed hover:text-white transition" title="Add/Replace Works">
                 <i class="fa-solid fa-folder-plus text-base"></i>
             </button>
 
+            <!-- HIRE ME BUTTON (Primary CTA) -->
             <button onclick="openContactModal()" class="bg-netflixRed hover:bg-red-700 active:bg-red-800 text-white font-bold text-xs sm:text-sm px-3.5 sm:px-5 py-1.5 sm:py-2 rounded shadow-lg transition duration-200 flex items-center gap-1.5 flex-shrink-0">
                 <i class="fa-solid fa-user-check text-xs"></i>
                 <span>Hire Me</span>
@@ -74,78 +77,74 @@
     </nav>
 
 
-    <!-- ================= HERO COVER CONTAINER (RECTANGLE BACKGROUND COVER PHOTO) ================= -->
-    <section id="hero" class="relative w-full px-4 sm:px-8 lg:px-12 pt-20 sm:pt-24">
-        
-        <!-- MAIN RECTANGLE COVER BOX -->
-        <div class="relative w-full h-[65dvh] sm:h-[75dvh] lg:h-[85dvh] rounded-2xl overflow-hidden border border-gray-800/80 shadow-2xl flex items-end pb-8 sm:pb-12 lg:pb-16 px-6 sm:px-10 lg:px-12">
-            
-            <!-- Cover Photo Background Layer -->
-            <div id="heroCoverImage" 
-                 class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 transform hover:scale-105"
-                 style="background-image: url(images/LOGO AND BACKGROUND/RDELL BIG SCREEN BACKGROUND.png);">
+    <!-- ================= HERO BILLBOARD (FEATURED COVER BANNER) ================= -->
+    <section id="hero" class="relative w-full min-h-[85dvh] lg:min-h-[92dvh] flex items-end pb-10 sm:pb-16 lg:pb-24 px-4 sm:px-8 lg:px-12 pt-20">
+        <!-- Hero Background Banner Canvas / Image -->
+        <div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
+            <!-- Custom Graphic Design Cover Image (Embedded HD SVG Representation matching Money Heist Salvador Dalí Mask Aesthetic) -->
+            <div
+    id="heroCoverImage"class="w-full h-full bg-cover bg-center transition-all duration-500"
+    style="background-image: url('images/LOGO AND BACKGROUND/RDELL BIG SCREEN BACKGROUND.PNG');">
+
+    <!-- Vignette & Gradient Overlays -->
+    <div class="absolute inset-0 hero-vignette"></div>
+
+</div>
+
+        <!-- Hero Content Layer -->
+        <div class="relative z-10 max-w-4xl space-y-3 sm:space-y-5">
+            <!-- Featured Badge -->
+            <div class="flex items-center space-x-2 flex-wrap gap-y-1">
+                <span class="bg-netflixRed text-white text-[10px] sm:text-xs font-black uppercase px-2 py-0.5 rounded tracking-widest shadow-md">
+                    FEATURED COVER ARTWORK
+                </span>
+                <span class="text-xs sm:text-sm text-gray-200 font-semibold tracking-wide">
+                    RDELL GRAPHIC DESIGN
+                </span>
             </div>
 
-            <!-- Dark Vignette Overlay for Text Readability -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight drop-shadow-2xl leading-none">
+                Rdell Mark B. Gabion
+            </h1>
 
-            <!-- Cover Content Layer -->
-            <div class="relative z-10 max-w-3xl space-y-3 sm:space-y-4">
-                <!-- Featured Badge -->
-                <div class="flex items-center space-x-2 flex-wrap gap-y-1">
-                    <span class="bg-netflixRed text-white text-[10px] sm:text-xs font-black uppercase px-2 py-0.5 rounded tracking-widest shadow-md">
-                        FEATURED COVER ARTWORK
-                    </span>
-                    <span class="text-xs sm:text-sm text-gray-200 font-semibold tracking-wide">
-                        RDELL GRAPHIC DESIGN
-                    </span>
-                </div>
-
-                <!-- Title -->
-                <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight drop-shadow-2xl leading-none">
-                    Rdell Mark B. Gabion
-                </h1>
-
-                <!-- Role Tags -->
-                <div class="flex items-center flex-wrap gap-2 text-sm sm:text-lg md:text-xl font-bold text-gray-200">
-                    <span class="text-netflixRed">UI/UX DESIGNER</span>
-                    <span class="text-gray-500">•</span>
-                    <span>GRAPHIC DESIGNER</span>
-                </div>
-
-                <!-- Stats Bar -->
-                <div class="flex items-center space-x-3 text-xs sm:text-sm font-medium text-gray-300">
-                    <span class="text-green-400 font-bold">100% Match</span>
-                    <span class="border border-gray-600 px-1.5 py-0.2 rounded text-[11px]">2026</span>
-                    <span class="border border-gray-600 px-1.5 py-0.2 rounded text-[11px]">4K ULTRA HD</span>
-                    <span class="bg-gray-800/80 px-2 py-0.5 rounded text-white">Figma • Photoshop</span>
-                </div>
-
-                <!-- Bio Description -->
-                <p class="text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl line-clamp-2 sm:line-clamp-none leading-relaxed drop-shadow">
-                    Official Netflix-style interactive showcase for Rdell Mark B. Gabion. Specializing in visual graphics, high-impact branding, dark-mode design aesthetics, and user-centered UI/UX design.
-                </p>
-
-                <!-- Action Buttons -->
-                <div class="flex items-center space-x-3 pt-2">
-                    <button onclick="openFeaturedHeroModal()" class="bg-white hover:bg-gray-200 active:bg-gray-300 text-black font-extrabold px-5 sm:px-7 py-2 sm:py-2.5 rounded flex items-center space-x-2 transition shadow-xl text-xs sm:text-sm md:text-base">
-                        <i class="fa-solid fa-play text-sm sm:text-base"></i>
-                        <span>Preview Work</span>
-                    </button>
-                    <button onclick="openContactModal()" class="bg-gray-600/80 hover:bg-gray-600 text-white font-bold px-5 sm:px-7 py-2 sm:py-2.5 rounded flex items-center space-x-2 transition shadow-xl backdrop-blur-md text-xs sm:text-sm md:text-base">
-                        <i class="fa-solid fa-paper-plane text-sm sm:text-base"></i>
-                        <span>Hire Designer</span>
-                    </button>
-                </div>
+            <!-- Role Tags -->
+            <div class="flex items-center flex-wrap gap-2 text-sm sm:text-lg md:text-xl font-bold text-gray-200">
+                <span class="text-netflixRed">UI/UX DESIGNER</span>
+                <span class="text-gray-500">•</span>
+                <span>GRAPHIC DESIGNER</span>
             </div>
 
+            <!-- Stats Bar -->
+            <div class="flex items-center space-x-3 text-xs sm:text-sm font-medium text-gray-300">
+                <span class="text-green-400 font-bold">100% Match</span>
+                <span class="border border-gray-600 px-1.5 py-0.2 rounded text-[11px]">2026</span>
+                <span class="border border-gray-600 px-1.5 py-0.2 rounded text-[11px]">4K ULTRA HD</span>
+                <span class="bg-gray-800/80 px-2 py-0.5 rounded text-white">Figma • Photoshop</span>
+            </div>
+
+            <!-- Bio Description -->
+            <p class="text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl line-clamp-3 sm:line-clamp-none leading-relaxed drop-shadow">
+                Official Netflix-style interactive showcase for Rdell Mark B. Gabion. Specializing in visual graphics, high-impact branding, dark-mode design aesthetics, and user-centered UI/UX design.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex items-center space-x-3 pt-2">
+                <button onclick="openFeaturedHeroModal()" class="bg-white hover:bg-gray-200 active:bg-gray-300 text-black font-extrabold px-5 sm:px-7 py-2 sm:py-2.5 rounded flex items-center space-x-2 transition shadow-xl text-xs sm:text-sm md:text-base">
+                    <i class="fa-solid fa-play text-sm sm:text-base"></i>
+                    <span>Preview Work</span>
+                </button>
+                <button onclick="openContactModal()" class="bg-gray-600/80 hover:bg-gray-600 text-white font-bold px-5 sm:px-7 py-2 sm:py-2.5 rounded flex items-center space-x-2 transition shadow-xl backdrop-blur-md text-xs sm:text-sm md:text-base">
+                    <i class="fa-solid fa-paper-plane text-sm sm:text-base"></i>
+                    <span>Hire Designer</span>
+                </button>
+            </div>
         </div>
     </section>
 
 
-    <!-- ================= MAIN PORTFOLIO ROWS ================= -->
-    <main class="space-y-10 sm:space-y-14 mt-10 sm:mt-14 z-20 relative pb-16 px-4 sm:px-8 lg:px-12">
+    <!-- ================= MAIN PORTFOLIO ROWS (TOUCH & WHEEL SCROLLABLE) ================= -->
+    <main class="space-y-10 sm:space-y-14 -mt-8 sm:-mt-16 z-20 relative pb-16 px-4 sm:px-8 lg:px-12">
 
         <!-- CATEGORY 1: GRAPHIC DESIGN & POSTERS -->
         <section id="graphic-design" class="portfolio-category">
@@ -161,16 +160,18 @@
             </div>
 
             <div class="relative group">
+                <!-- Left Scroll Arrow -->
                 <button onclick="scrollRow('rowGraphic', -380)" class="absolute left-0 top-0 bottom-0 z-40 bg-black/70 hover:bg-black text-white px-2.5 hidden group-hover:flex items-center justify-center transition duration-200 rounded-r">
                     <i class="fa-solid fa-chevron-left text-lg"></i>
                 </button>
 
+                <!-- Row Cards Box -->
                 <div id="rowGraphic" class="flex space-x-3 sm:space-x-4 overflow-x-auto no-scrollbar scroll-smooth py-3 px-1">
                     
-                    <!-- CARD 1: Featured Artwork -->
+                    <!-- CARD 1: Featured Money Heist Graphic Artwork -->
                     <div class="poster-card min-w-[200px] xs:min-w-[240px] sm:min-w-[280px] bg-netflixCard rounded-lg overflow-hidden cursor-pointer flex-shrink-0 relative border border-gray-800/80"
-                         onclick="openProjectModal('RDELL GRAPHIC DESIGN - Salvador Dalí Edition', 'Graphic Design', 'Signature dark street-style graphic layout featuring Money Heist mask aesthetic, typography artwork, and custom branding overlays.', 'Frame 9.jpg', 'Adobe Photoshop • Graphic Manipulation • Poster Art')">
-                        <div class="h-36 sm:h-44 w-full bg-cover bg-center" style="background-image: url('Frame 9.jpg');"></div>
+                         onclick="openProjectModal('RDELL GRAPHIC DESIGN - Salvador Dalí Edition', 'Graphic Design', 'Signature dark street-style graphic layout featuring Money Heist mask aesthetic, typography artwork, and custom branding overlays.', 'data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22><rect width=%22600%22 height=%22400%22 fill=%22%23141414%22/><text x=%2250%25%22 y=%2225%25%22 fill=%22%23ffffff%22 font-family=%22Impact%22 font-size=%2236%22 text-anchor=%22middle%22>RDELL GRAPHIC DESIGN</text><circle cx=%22300%22 cy=%22220%22 r=%2280%22 fill=%22%23e2ccb0%22/><ellipse cx=%22275%22 cy=%22200%22 rx=%2212%22 ry=%228%22 fill=%22%23fff%22/><ellipse cx=%22325%22 cy=%22200%22 rx=%2212%22 ry=%228%22 fill=%22%23fff%22/><circle cx=%22275%22 cy=%22200%22 r=%224%22/><circle cx=%22325%22 cy=%22200%22 r=%224%22/><path d=%22M 250 230 Q 280 215 300 240 Q 320 215 350 230%22 stroke=%22%23000%22 stroke-width=%225%22 fill=%22none%22/><text x=%2250%25%22 y=%2290%25%22 fill=%22%23e50914%22 font-family=%22sans-serif%22 font-size=%2214%22 font-weight=%22bold%22 text-anchor=%22middle%22>G.DESIGNS.WORK999@GMAIL.COM</text></svg>', 'Adobe Photoshop • Graphic Manipulation • Poster Art')">
+                        <div class="h-36 sm:h-44 w-full bg-cover bg-center" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22><rect width=%22600%22 height=%22400%22 fill=%22%23141414%22/><text x=%2250%25%22 y=%2225%25%22 fill=%22%23ffffff%22 font-family=%22Impact%22 font-size=%2236%22 text-anchor=%22middle%22>RDELL GRAPHIC DESIGN</text><circle cx=%22300%22 cy=%22220%22 r=%2280%22 fill=%22%23e2ccb0%22/><ellipse cx=%22275%22 cy=%22200%22 rx=%2212%22 ry=%228%22 fill=%22%23fff%22/><ellipse cx=%22325%22 cy=%22200%22 rx=%2212%22 ry=%228%22 fill=%22%23fff%22/><circle cx=%22275%22 cy=%22200%22 r=%224%22/><circle cx=%22325%22 cy=%22200%22 r=%224%22/><path d=%22M 250 230 Q 280 215 300 240 Q 320 215 350 230%22 stroke=%22%23000%22 stroke-width=%225%22 fill=%22none%22/><text x=%2250%25%22 y=%2290%25%22 fill=%22%23e50914%22 font-family=%22sans-serif%22 font-size=%2214%22 font-weight=%22bold%22 text-anchor=%22middle%22>G.DESIGNS.WORK999@GMAIL.COM</text></svg>');"></div>
                         <div class="p-3">
                             <div class="flex items-center justify-between text-xs mb-1">
                                 <span class="text-green-400 font-bold">100% Match</span>
@@ -183,8 +184,8 @@
 
                     <!-- CARD 2: Neon Cyberpunk Poster -->
                     <div class="poster-card min-w-[200px] xs:min-w-[240px] sm:min-w-[280px] bg-netflixCard rounded-lg overflow-hidden cursor-pointer flex-shrink-0 relative border border-gray-800/80"
-                         onclick="openProjectModal('Neon Cyberpunk Event Artwork', 'Graphic Design', 'Futuristic cyberpunk event poster created with multi-layered lighting effects, neon gradients, and typography composition.', 'images/Instagram post - 10.png', 'Photoshop • Cyberpunk • Digital Art')">
-                        <img src="images/Instagram post - 10.png" alt="Cyberpunk Poster" class="h-36 sm:h-44 w-full object-cover">
+                         onclick="openProjectModal('Neon Cyberpunk Event Artwork', 'Graphic Design', 'Futuristic cyberpunk event poster created with multi-layered lighting effects, neon gradients, and typography composition.', 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop', 'Photoshop • Cyberpunk • Digital Art')">
+                        <img src="images/Instagram post - 10.png"Cyberpunk Poster" class="h-36 sm:h-44 w-full object-cover">
                         <div class="p-3">
                             <div class="flex items-center justify-between text-xs mb-1">
                                 <span class="text-green-400 font-bold">98% Match</span>
@@ -195,7 +196,7 @@
                         </div>
                     </div>
 
-                    <!-- CARD 3: Brand Marketing -->
+                    <!-- CARD 3: Brand Marketing Social Media Package -->
                     <div class="poster-card min-w-[200px] xs:min-w-[240px] sm:min-w-[280px] bg-netflixCard rounded-lg overflow-hidden cursor-pointer flex-shrink-0 relative border border-gray-800/80"
                          onclick="openProjectModal('Social Media Marketing Package', 'Graphic Design', 'High-converting social media marketing materials designed for Instagram, Facebook, and advertisement campaigns.', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop', 'Branding • Social Media • Advertising')">
                         <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" alt="Social Media Graphics" class="h-36 sm:h-44 w-full object-cover">
@@ -225,6 +226,7 @@
 
                 </div>
 
+                <!-- Right Scroll Arrow -->
                 <button onclick="scrollRow('rowGraphic', 380)" class="absolute right-0 top-0 bottom-0 z-40 bg-black/70 hover:bg-black text-white px-2.5 hidden group-hover:flex items-center justify-center transition duration-200 rounded-l">
                     <i class="fa-solid fa-chevron-right text-lg"></i>
                 </button>
@@ -304,6 +306,189 @@
 
     </main>
 
+
+    <!-- ================= PROJECT DETAIL MODAL (MORE INFO) ================= -->
+    <div id="projectModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 hidden glass-modal overflow-y-auto">
+        <div class="relative bg-netflixCard text-white w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl border border-gray-800 my-auto animate-fade-in">
+            <!-- Close Button -->
+            <button onclick="closeProjectModal()" class="absolute top-3 right-3 z-50 bg-black/80 hover:bg-netflixRed text-white w-9 h-9 rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-base"></i>
+            </button>
+
+            <!-- Image Header -->
+            <div class="relative h-56 sm:h-72 md:h-80 bg-cover bg-center" id="modalImage">
+                <div class="absolute inset-0 bg-gradient-to-t from-netflixCard via-netflixCard/30 to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4">
+                    <span id="modalCategory" class="bg-netflixRed text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded tracking-wide">
+                        CATEGORY
+                    </span>
+                    <h2 id="modalTitle" class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-1 drop-shadow-md">
+                        Project Title
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Details -->
+            <div class="p-4 sm:p-6 space-y-4">
+                <div class="flex items-center flex-wrap gap-3 text-xs sm:text-sm text-gray-300">
+                    <span class="text-green-400 font-bold">100% Recommended</span>
+                    <span class="border border-gray-700 px-1.5 py-0.2 rounded text-[11px]">2026</span>
+                    <span id="modalTags" class="text-netflixRed font-semibold">Figma • Photoshop</span>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Description</h4>
+                    <p id="modalDescription" class="text-xs sm:text-sm text-gray-200 leading-relaxed">
+                        Detailed project description...
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800 flex items-center justify-between flex-wrap gap-3">
+                    <button onclick="openContactModal()" class="bg-netflixRed hover:bg-red-700 text-white font-bold px-5 py-2 rounded flex items-center gap-2 text-xs sm:text-sm transition">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Hire Me For Similar Project</span>
+                    </button>
+                    <a href="https://g-dev-one.vercel.app/" target="_blank" class="text-xs text-gray-400 hover:text-white underline flex items-center gap-1">
+                        Visit Main Portfolio <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= HIRE ME CONTACT OVERLAY MODAL ================= -->
+    <div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 hidden glass-modal overflow-y-auto">
+        <div class="relative bg-netflixCard text-white w-full max-w-md rounded-xl overflow-hidden shadow-2xl border border-gray-800 p-5 sm:p-7">
+            <!-- Close Button -->
+            <button onclick="closeContactModal()" class="absolute top-3 right-3 bg-black/80 hover:bg-netflixRed text-white w-8 h-8 rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+
+            <!-- Contact Header -->
+            <div class="text-center mb-5">
+                <span class="brand-font text-3xl text-netflixRed tracking-wider">PORTFOLIOFLEX</span>
+                <h3 class="text-xl font-bold text-white mt-1">Hire Rdell Mark B. Gabion</h3>
+                <p class="text-xs text-gray-400 mt-0.5">UI/UX Designer & Graphic Designer</p>
+            </div>
+
+            <!-- Contact Channels -->
+            <div class="space-y-3">
+                <!-- Email Card -->
+                <div class="bg-netflixDark p-3.5 rounded-lg border border-gray-800 flex items-center justify-between hover:border-netflixRed transition">
+                    <div class="flex items-center space-x-3 overflow-hidden">
+                        <div class="w-9 h-9 rounded bg-red-900/40 text-netflixRed flex items-center justify-center text-base flex-shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="truncate">
+                            <p class="text-[10px] text-gray-400 uppercase tracking-wider">Email</p>
+                            <p class="text-xs sm:text-sm font-semibold text-white truncate">G.designs.work999@gmail.com</p>
+                        </div>
+                    </div>
+                    <button onclick="copyToClipboard('G.designs.work999@gmail.com', 'Email copied!')" class="bg-gray-800 hover:bg-gray-700 text-[11px] px-2.5 py-1 rounded text-gray-200 transition flex-shrink-0">
+                        Copy
+                    </button>
+                </div>
+
+                <!-- Website Card -->
+                <div class="bg-netflixDark p-3.5 rounded-lg border border-gray-800 flex items-center justify-between hover:border-netflixRed transition">
+                    <div class="flex items-center space-x-3 overflow-hidden">
+                        <div class="w-9 h-9 rounded bg-blue-900/40 text-blue-400 flex items-center justify-center text-base flex-shrink-0">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div class="truncate">
+                            <p class="text-[10px] text-gray-400 uppercase tracking-wider">Website</p>
+                            <p class="text-xs sm:text-sm font-semibold text-white truncate">https://g-dev-one.vercel.app/</p>
+                        </div>
+                    </div>
+                    <a href="https://g-dev-one.vercel.app/" target="_blank" class="bg-netflixRed hover:bg-red-700 text-[11px] px-2.5 py-1 rounded text-white transition flex-shrink-0">
+                        Visit
+                    </a>
+                </div>
+
+                <!-- Facebook Card -->
+                <div class="bg-netflixDark p-3.5 rounded-lg border border-gray-800 flex items-center justify-between hover:border-netflixRed transition">
+                    <div class="flex items-center space-x-3 overflow-hidden">
+                        <div class="w-9 h-9 rounded bg-blue-800/40 text-blue-500 flex items-center justify-center text-base flex-shrink-0">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div class="truncate">
+                            <p class="text-[10px] text-gray-400 uppercase tracking-wider">Facebook</p>
+                            <p class="text-xs sm:text-sm font-semibold text-white truncate">Andoyswell Namaswell</p>
+                        </div>
+                    </div>
+                    <button onclick="copyToClipboard('Andoyswell Namaswell', 'Facebook name copied!')" class="bg-gray-800 hover:bg-gray-700 text-[11px] px-2.5 py-1 rounded text-gray-200 transition flex-shrink-0">
+                        Copy
+                    </button>
+                </div>
+            </div>
+
+            <p class="text-center text-[11px] text-gray-500 mt-5">
+                Available for UI/UX commissions, branding, and graphic layout inquiries.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- ================= DYNAMIC WORK CUSTOMIZER / POSTER MANAGER MODAL ================= -->
+    <div id="customManagerModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 hidden glass-modal overflow-y-auto">
+        <div class="relative bg-netflixCard text-white w-full max-w-lg rounded-xl overflow-hidden shadow-2xl border border-gray-800 p-5 sm:p-6">
+            <button onclick="closeCustomManagerModal()" class="absolute top-3 right-3 bg-black/80 hover:bg-netflixRed text-white w-8 h-8 rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa-solid fa-wand-magic-sparkles text-netflixRed text-xl"></i>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Add or Replace Poster Work</h3>
+                    <p class="text-xs text-gray-400">Custom project manager for your graphic & UI/UX portfolio</p>
+                </div>
+            </div>
+
+            <form id="addPosterForm" onsubmit="handleAddNewWork(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-gray-300 font-semibold mb-1">Target Category</label>
+                    <select id="newCategory" class="w-full bg-netflixDark border border-gray-700 rounded p-2 text-white focus:border-netflixRed outline-none">
+                        <option value="Graphic Design">Graphic Design Works</option>
+                        <option value="UI/UX Design">UI/UX Projects & Mobile Apps</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-300 font-semibold mb-1">Project Title</label>
+                    <input id="newTitle" type="text" placeholder="e.g. Esports Brand Artwork" required class="w-full bg-netflixDark border border-gray-700 rounded p-2 text-white focus:border-netflixRed outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-gray-300 font-semibold mb-1">Image URL or Local Upload File</label>
+                    <div class="flex items-center gap-2">
+                        <input id="newImageUrl" type="text" placeholder="https://..." class="w-full bg-netflixDark border border-gray-700 rounded p-2 text-white focus:border-netflixRed outline-none">
+                        <label class="bg-gray-800 hover:bg-gray-700 text-gray-200 px-3 py-2 rounded cursor-pointer flex-shrink-0">
+                            <span>Browse</span>
+                            <input id="newFileInput" type="file" accept="image/*" class="hidden" onchange="handleFileSelect(event)">
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-300 font-semibold mb-1">Tools / Tags</label>
+                    <input id="newTags" type="text" placeholder="e.g. Photoshop • Illustrator • Branding" required class="w-full bg-netflixDark border border-gray-700 rounded p-2 text-white focus:border-netflixRed outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-gray-300 font-semibold mb-1">Project Description</label>
+                    <textarea id="newDescription" rows="3" placeholder="Describe the graphic design or UI/UX project concept..." required class="w-full bg-netflixDark border border-gray-700 rounded p-2 text-white focus:border-netflixRed outline-none"></textarea>
+                </div>
+
+                <div class="pt-2 flex items-center justify-end space-x-2">
+                    <button type="button" onclick="closeCustomManagerModal()" class="px-4 py-2 rounded text-gray-400 hover:text-white">Cancel</button>
+                    <button type="submit" class="bg-netflixRed hover:bg-red-700 text-white font-bold px-5 py-2 rounded transition">Add To Netflix Row</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
     <!-- ================= FOOTER ================= -->
     <footer class="bg-black text-gray-500 text-xs py-10 px-4 sm:px-8 lg:px-12 border-t border-gray-900">
         <div class="max-w-6xl mx-auto space-y-6">
@@ -311,12 +496,47 @@
                 <span class="brand-font text-2xl text-netflixRed tracking-wider">PORTFOLIOFLEX</span>
                 <p class="text-gray-400 text-center sm:text-right">Rdell Mark B. Gabion — UI/UX & Graphic Designer</p>
             </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-gray-900 text-[11px]">
+                <div class="space-y-1.5">
+                    <p class="text-gray-300 font-bold mb-1">Navigation</p>
+                    <p><a href="#hero" class="hover:underline">Home Billboard</a></p>
+                    <p><a href="#graphic-design" class="hover:underline">Graphic Design</a></p>
+                </div>
+                <div class="space-y-1.5">
+                    <p class="text-gray-300 font-bold mb-1">Specializations</p>
+                    <p><a href="#uiux-design" class="hover:underline">UI/UX Mobile Apps</a></p>
+                    <p><a href="#uiux-design" class="hover:underline">Web Systems</a></p>
+                </div>
+                <div class="space-y-1.5">
+                    <p class="text-gray-300 font-bold mb-1">Contact Info</p>
+                    <p><a href="mailto:G.designs.work999@gmail.com" class="hover:underline truncate block">G.designs.work999@gmail.com</a></p>
+                    <p><a href="https://g-dev-one.vercel.app/" target="_blank" class="hover:underline">https://g-dev-one.vercel.app/</a></p>
+                </div>
+                <div class="space-y-1.5">
+                    <p class="text-gray-300 font-bold mb-1">Connect</p>
+                    <p><span class="hover:underline cursor-pointer" onclick="openContactModal()">Facebook: Andoyswell Namaswell</span></p>
+                    <p><span class="hover:underline cursor-pointer text-netflixRed" onclick="openContactModal()">Hire Designer</span></p>
+                </div>
+            </div>
+
             <p class="text-center sm:text-left text-gray-600 pt-4">
-                © 2026 PORTFLEX • Rdell Mark B. Gabion.
+                © 2026 PORTFOLIOFLEX • Rdell Mark B. Gabion. Compatible across all iOS, Android, macOS, Windows, and Web devices.
             </p>
         </div>
     </footer>
 
-    <script src="./js/script.js"></script>
+
+    <!-- ================= TOAST NOTIFICATION ================= -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-netflixRed text-white text-xs font-semibold px-4 py-3 rounded-md shadow-2xl flex items-center space-x-2 transform translate-y-20 opacity-0 pointer-events-none">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMessage">Notification</span>
+    </div>
+
+
+    <!-- ================= JAVASCRIPT CONTROLLERS ================= -->
+
+<script src="./js/script.js"></script>
+    
 </body>
 </html>
